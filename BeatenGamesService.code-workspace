@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../gamelistdb-utils/Utils"
+		},
+		{
+			"path": "../gamelistdb-utils/gamelistdb-model"
+		}
+	],
+	"settings": {}
+}

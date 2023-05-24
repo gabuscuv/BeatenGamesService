@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option csharp_namespace = "BeatenGamesService.Services";
+
+package greet;
+
+// The greeting service definition.
+service Backlog {
+  // Sends a greeting
+  rpc RequestBacklog (BacklogRequest) returns (BacklogReply);
+  rpc GetTopBacklogGames (TopRequest) returns (BacklogReply);
+  rpc GetTopPriorizedBacklogGames (TopRequest) returns (BacklogReply);
+}
+
+// The request message containing the user's name.
+message BacklogRequest {
+  int32 year  = 1;
+  int32 index  = 2;
+  int32 length = 3;
+}
+
+message TopRequest {
+  int32 index  = 1;
+  int32 length = 2;
+}
+
+message BacklogReply {
+  repeated BacklogItem backlogItems =  1;
+}
+
+// The response message containing the greetings.
+message BacklogItem {
+  string name = 1;
+  string status = 2;
+  string img = 3;
+  string plataform = 5;
+  string releaseyear= 4;
+  int32 nsfw = 6;
+}
+

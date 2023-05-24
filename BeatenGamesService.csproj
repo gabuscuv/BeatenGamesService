@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\BackLogList.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
+    <PackageReference Include="System.Text.Json" Version="7.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+  <ProjectReference Include="../gamelistdb-utils/IGDBIntegration/IGDBIntegration.csproj" />
+  <ProjectReference Include="../gamelistdb-utils/gamelistdb-model/GameListDB.Model.csproj" />
+  <ProjectReference Include="../gamelistdb-utils/Utils/GameListDB.Utils.csproj" />
+  </ItemGroup>
+
+<Target Name="CopyCustomContent" AfterTargets="AfterBuild">
+  <Copy SourceFiles="config.json" DestinationFolder="$(OutDir)" />
+</Target>
+
+</Project>
